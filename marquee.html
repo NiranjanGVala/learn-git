@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <style style="text/css">
+        .marquee {
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+            background: #fefefe;
+            color: #333;
+            border: 1px solid #4a4a4a;
+        }
+        
+        .marquee p {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            line-height: 50px;
+            text-align: center;
+            font-weight: 700;
+            -moz-transform: translateY(-100%);
+            -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+            -moz-animation: scroll-up 2s linear infinite;
+            -webkit-animation: scroll-up 2s linear infinite;
+            animation: scroll-up 2s linear infinite;
+        }
+        
+        @-moz-keyframes scroll-up {
+            0% {
+                -moz-transform: translateY(-100%);
+            }
+            100% {
+                -moz-transform: translateY(100%);
+            }
+        }
+        
+        @-webkit-keyframes scroll-up {
+            0% {
+                -webkit-transform: translateY(-100%);
+            }
+            100% {
+                -webkit-transform: translateY(100%);
+            }
+        }
+        
+        @keyframes scroll-up {
+            0% {
+                -moz-transform: translateY(-100%);
+                -webkit-transform: translateY(-100%);
+                transform: translateY(-100%);
+            }
+            100% {
+                -moz-transform: translateY(100%);
+                -webkit-transform: translateY(100%);
+                transform: translateY(100%);
+            }
+        }
+    </style>
+
+    <div class="marquee">
+        <p id="offer-para"> Marquee in CSS </p>
+    </div>
+
+    <script>
+        let offerPara = document.getElementById("offer-para")
+        let offers = [
+            "20 % off on nothing",
+            "30 % off on clothings",
+            "100 % discount on all products",
+            "24x7 hours 365 days sale!"
+        ]
+        let i = 0
+        offerPara.innerHTML = offers[offers.length -1]
+        setInterval(function() {
+            offerPara.innerHTML = offers[i]
+            if (i == offers.length -1) {
+                i = 0
+            } else {
+                i++
+            }
+        }, 2000)
+    </script>
+</body>
+
+</html>
