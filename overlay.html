@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        .overlay {
+            display: none;
+        }
+        .overlay-open {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, .5);
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <h1>Welcome to our site</h1>
+        <p>This is a great site</p>
+        <button id="search">Search</button>
+    </div>
+    <div id="overlay" class="overlay"></div>
+    <script>
+        let searchButton = document.getElementById("search")
+        let overlay = document.getElementById("overlay")
+        searchButton.addEventListener("click", function() {
+            if (overlay.classList.contains("overlay")) {
+                overlay.classList.remove("overlay")
+                overlay.classList.add("overlay-open")
+            }
+        })
+    </script>
+</body>
+</html>
